@@ -1,10 +1,213 @@
+:root {
+    --color-accent: oklch(65% 50% 0); /* Define accent color */
+}
+
+html {
+    accent-color: var(--color-accent); /* Apply accent color to the document */
+}
+
 body {
     /* Set line height to 1.5 times the font size
          and use the OS’s UI font as the website font
        */
     font: 100%/1.5 system-ui;
     max-width: 100ch;
-    margin-inline: auto;
+    margin: 0 auto;
     padding: 20px;
     font-size: 1rem;
+    margin-inline: max(1em, (100% - 100ch) / 2);
 }
+
+nav ul {
+    display: contents; /* Ignore the <ul> for styling */
+}
+
+nav li {
+    display: contents; /* Ignore the <li> for styling */
+    /* ... existing styles ... */
+}
+
+nav {
+    display: flex; /* Enable Flexbox layout */
+    margin-bottom: 1em; /* Add margin below the nav */
+    border-bottom: 1px solid oklch(80% 3% 200); /* Add a bottom border */
+}
+
+nav a {
+    flex: 1; /* Make each <a> take up equal space */
+    text-decoration: none; /* Remove underline from links */
+    color: inherit; /* Use the same text color as the parent */
+    text-align: center; /* Center the text */
+    padding: 0.5em; /* Add padding for spacing */
+    /* ... existing styles ... */
+}
+
+nav a.current {
+    border-bottom: 0.4em solid oklch(80% 3% 200); /* Thick bottom border for current link */
+    padding-bottom: 0.1em; /* Reduced padding-bottom to counter height increase */
+}
+
+nav a:hover {
+    border-bottom: 0.4em solid var(--color-accent); /* Use accent color for hovered links */
+    /* ... existing styles ... */
+}
+
+form {
+    display: grid; /* Enable CSS Grid layout */
+    grid-template-columns: auto 1fr; /* Define two columns: one for labels, one for inputs */
+    gap: 1em; /* Add spacing between form controls */
+}
+
+form label {
+    grid-column: 1; /* Place labels in the first column */
+    margin-block: 0; /* Remove margin since we are using grid */
+}
+
+form input, 
+form textarea {
+    grid-column: 2; /* Place input fields in the second column */
+    width: 100%; /* Ensure inputs take the full width of their grid cell */
+    box-sizing: border-box; /* Include padding and border in the width */
+    font: inherit; /* Ensure all form controls use the same font */
+}
+
+form button {
+    grid-column: 1 / -1; /* Make the button span both columns */
+    width: 100%; /* Ensure the button takes the full width */
+    box-sizing: border-box; /* Include padding and border in the width */
+    font: inherit; /* Ensure the button uses the same font */
+    padding: 0.25em; /* Reduce padding for a skinnier appearance */
+    font-size: 0.9rem; /* Optionally adjust font size for a slimmer look */
+}
+
+.projects {
+    display: grid; /* Make .projects a grid container */
+    grid-template-columns: repeat(auto-fill, minmax(15em, 1fr)); /* Flexible columns */
+    gap: 1em; /* Add spacing between grid items */
+}
+
+.projects article {
+    display: grid; /* Make each article a grid container */
+    grid-template-rows: subgrid; /* Use subgrid for rows */
+    gap: 1em; /* Add spacing within each article */
+    grid-row: span 3; /* Make each article span 3 rows */
+}
+
+.projects h2 {
+    margin: 0; /* Remove excessive margin from headings */
+}
+
+/* General styles for all headings */
+h1, h2, h3, h4, h5, h6 {
+    line-height: 1.1; /* Set line height for all headings */
+    text-wrap: balance; /* Prevent uneven lines (if supported) */
+}
+
+/* Specific styles for h1 */
+h1 {
+    font-size: 4em; /* Make h1 significantly larger (400% of body text) */
+}
+
+/* Specific styles for h2 */
+h2 {
+    font-size: 2em; /* Adjust h2 size for better contrast */
+}
+
+/* Container for the resume */
+.resume-container {
+    max-width: 800px; /* Limit the width of the resume */
+    margin: 20px auto; /* Center the container */
+    padding: 20px; /* Add padding */
+    background: #ffffff; /* White background for the resume */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Headings */
+.resume-container h1, 
+.resume-container h2, 
+.resume-container h3 {
+    color: #2c3e50; /* Darker color for headings */
+    margin-bottom: 10px; /* Space below headings */
+}
+
+.resume-container h1 {
+    font-size: 2.5em; /* Larger font size for main title */
+    border-bottom: 2px solid #3498db; /* Underline for emphasis */
+    padding-bottom: 10px; /* Space below the heading */
+}
+
+.resume-container h2 {
+    font-size: 1.8em; /* Slightly smaller than h1 */
+    margin-top: 20px; /* Space above h2 */
+    color: #3498db; /* Color for h2 headings */
+}
+
+/* Sections */
+.resume-container section {
+    margin-bottom: 20px; /* Space between sections */
+}
+
+/* Grid Layout for Experience and Education */
+.resume-grid-container {
+    display: grid; /* Enable grid layout */
+    grid-template-columns: repeat(2, 1fr); /* Two equal columns */
+    gap: 20px; /* Space between grid items */
+}
+
+/* Article Styles */
+.resume-container article {
+    background: #f9f9f9; /* Light background for articles */
+    border-left: 4px solid #3498db; /* Left border for emphasis */
+    padding: 15px; /* Padding inside articles */
+    border-radius: 4px; /* Rounded corners for articles */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Lists */
+.resume-container ul {
+    list-style-type: none; /* Remove default list styling */
+    padding: 0; /* Remove padding */
+}
+
+.resume-container li {
+    margin-bottom: 10px; /* Space between list items */
+}
+
+/* Links */
+.resume-container a {
+    color: #3498db; /* Link color */
+    text-decoration: none; /* Remove underline */
+}
+
+.resume-container a:hover {
+    text-decoration: underline; /* Underline on hover */
+}
+
+/* Footer */
+.resume-container footer {
+    text-align: center; /* Center footer text */
+    margin-top: 20px; /* Space above footer */
+    font-size: 0.9em; /* Smaller font size for footer */
+    color: #777; /* Lighter color for footer text */
+}
+
+/* Responsive Styles */
+@media (max-width: 600px) {
+    .resume-container h1 {
+        font-size: 2em; /* Adjust h1 size for smaller screens */
+    }
+
+    .resume-container h2 {
+        font-size: 1.5em; /* Adjust h2 size for smaller screens */
+    }
+
+    .resume-grid-container {
+        grid-template-columns: 1fr; /* Stack columns on smaller screens */
+    }
+
+    .resume-container {
+        padding: 10px; /* Reduce padding on smaller screens */
+    }
+}
+
