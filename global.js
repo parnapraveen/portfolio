@@ -90,18 +90,23 @@ const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
 // Iterate over the pages to create links
 for (let p of pages) {
-  let url = p.url;
+  let url = p.url; // This should not have a leading slash
   let title = p.title;
 
   // Adjust the URL if we are not on the home page
   if (!ARE_WE_HOME && !url.startsWith('http')) {
-    // Only prepend '../' if the URL does not start with a '/'
-    url = url.startsWith('/') ? url : '../' + url;
+    // Check if the URL starts with the GitHub Pages base URL
+    if (url.startsWith('https://parnapraveen.github.io/')) {
+      url = 'portfolio/' + url.substring('https://parnapraveen.github.io/'.length);
+    } else {
+      // Only prepend '../' if the URL does not start with a '/'
+      url = url.startsWith('/') ? url : '../' + url;
+    }
   }
 
   // Create the link element
   let a = document.createElement('a');
-  a.href = url;
+  a.href = url; // Set the href to the URL from the pages array
   a.textContent = title;
 
   // Highlight the current page link
