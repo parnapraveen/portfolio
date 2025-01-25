@@ -88,21 +88,57 @@ document.body.prepend(nav);
 // Check if we are on the home page
 const ARE_WE_HOME = document.documentElement.classList.contains('home');
 
+const BASE_PATH = '/portfolio/';
+
 // Iterate over the pages to create links
 for (let p of pages) {
   let url = p.url; // This should not have a leading slash
   let title = p.title;
 
-  // Adjust the URL if we are not on the home page
-  if (url.startsWith('https://parnapraveen.github.io/')) {
-    url = url.replace('https://parnapraveen.github.io/', '/portfolio/');
+  // Handle external links
+  if (url.startsWith('http')) {
+    let a = document.createElement('a');
+    a.href = url;
+    a.textContent = title;
+    a.target = '_blank';
+    nav.append(a);
+    continue;
   }
 
   // Adjust the URL if we are not on the home page
   if (!ARE_WE_HOME) {
-    // Only prepend '../' for internal links that aren't absolute
-    if (!url.startsWith('http') && !url.startsWith('/')) {
-      url = '../' + url;
+    // Prepend '/portfolio/' to internal page links
+    url = '/portfolio/' + url;
+  }
+
+  // Create the link element
+  let a = document.createElement('a');
+  a.href = url; // Set the href to the URL from the pages array
+  a.textContent = title;
+
+  // Highlight the current page link
+  a.classList.toggle(
+    'current',
+    a.pathname === location.pathname
+  );
+
+  // Open external links in a new tab
+  if (a.host !== location.host) {
+    a.target = '_blank';
+  }
+
+  // Append the link to the nav
+  nav.append(a);
+}
+  /*
+  // Adjust the URL if we are not on the home page
+  if (!ARE_WE_HOME) {
+    // Check if the URL starts with the GitHub Pages base URL
+    if (url.startsWith('https://parnapraveen.github.io/portfolio')) {
+      url = 'portfolio/' + url.substring('https://parnapraveen.github.io/'.length);
+    } else {
+      // Only prepend '../' if the URL does not start with a '/'
+      url = url.startsWith('/') ? url : '../' + url;
     }
   }
 
@@ -125,3 +161,4 @@ for (let p of pages) {
   // Append the link to the nav
   nav.append(a);
 }
+  */
