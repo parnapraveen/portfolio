@@ -270,3 +270,26 @@ h2 {
     padding: 0.2rem; /* Add some padding for better appearance */
 }
 
+.image-container {
+    text-align: center; /* Center the image and text horizontally */
+    margin: 20px 0; /* Add some vertical spacing */
+}
+
+.centered-image {
+    max-width: 80%; /* Set the maximum width of the image */
+    height: auto; /* Maintain aspect ratio */
+    border: 2px solid #ccc; /* Example border */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.centered-text {
+    text-align: center; /* Center the text */
+    margin: 10px 0; /* Add some spacing above and below the text */
+}
+
+.centered-name {
+    text-align: center; /* Center the name */
+    margin: 20px 0; /* Add some spacing above and below the name */
+}
+
