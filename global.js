@@ -96,7 +96,7 @@ for (let p of pages) {
   // Adjust the URL if we are not on the home page
   if (!ARE_WE_HOME && !url.startsWith('http')) {
     // Check if the URL starts with the GitHub Pages base URL
-    if (url.startsWith('https://parnapraveen.github.io/')) {
+    if (url.startsWith('https://parnapraveen.github.io/portfolio')) {
       url = 'portfolio/' + url.substring('https://parnapraveen.github.io/'.length);
     } else {
       // Only prepend '../' if the URL does not start with a '/'
