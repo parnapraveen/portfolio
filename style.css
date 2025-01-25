@@ -1,14 +1,18 @@
 :root {
     --color-accent: oklch(65% 50% 0); /* Define accent color */
+    --background-color: #ffffff; /* Light background color */
+    --text-color: #000000; /* Light text color */
+    --border-color: oklch(50% 10% 200 / 40%); /* Light border color */
 }
 
 html {
     accent-color: var(--color-accent); /* Apply accent color to the document */
+    color-scheme: light dark; /* Indicate that the site supports both light and dark modes */
 }
 
 body {
     /* Set line height to 1.5 times the font size
-         and use the OS’s UI font as the website font
+         and use the OS's UI font as the website font
        */
     font: 100%/1.5 system-ui;
     max-width: 100ch;
@@ -16,6 +20,8 @@ body {
     padding: 20px;
     font-size: 1rem;
     margin-inline: max(1em, (100% - 100ch) / 2);
+    background-color: var(--background-color); /* Use the defined background color */
+    color: var(--text-color); /* Use the defined text color */
 }
 
 nav ul {
@@ -30,13 +36,15 @@ nav li {
 nav {
     display: flex; /* Enable Flexbox layout */
     margin-bottom: 1em; /* Add margin below the nav */
-    border-bottom: 1px solid oklch(80% 3% 200); /* Add a bottom border */
+    background-color: var(--background-color); /* Use the background color variable */
+    color: var(--text-color); /* Use the text color variable */
+    border-bottom: 1px solid var(--border-color); /* Use the border color variable */
 }
 
 nav a {
     flex: 1; /* Make each <a> take up equal space */
     text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Use the same text color as the parent */
+    color: inherit; /* Inherit color from nav */
     text-align: center; /* Center the text */
     padding: 0.5em; /* Add padding for spacing */
     /* ... existing styles ... */
@@ -48,7 +56,7 @@ nav a.current {
 }
 
 nav a:hover {
-    border-bottom: 0.4em solid var(--color-accent); /* Use accent color for hovered links */
+    background-color: color-mix(in oklch, var(--color-accent), canvas 85%); /* Improved hover background color */
     /* ... existing styles ... */
 }
 
@@ -118,7 +126,7 @@ h2 {
     max-width: 800px; /* Limit the width of the resume */
     margin: 20px auto; /* Center the container */
     padding: 20px; /* Add padding */
-    background: #ffffff; /* White background for the resume */
+    background: var(--background-color); /* Use the defined background color */
     border-radius: 8px; /* Rounded corners */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Subtle shadow */
 }
@@ -209,5 +217,52 @@ h2 {
     .resume-container {
         padding: 10px; /* Reduce padding on smaller screens */
     }
+}
+
+/* Dark Mode Styles */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #121212; /* Dark background color */
+        --text-color: #ffffff; /* Light text color */
+    }
+
+    nav {
+        background-color: #1e1e1e; /* Darker nav background */
+    }
+
+    .resume-container {
+        background: #1e1e1e; /* Dark background for resume container */
+        border-left: 4px solid #3498db; /* Keep the left border for emphasis */
+    }
+
+    .resume-container h1, 
+    .resume-container h2, 
+    .resume-container h3 {
+        color: #ffffff; /* Light color for headings in dark mode */
+    }
+
+    nav a {
+        color: #bb86fc; /* Light purple for links in dark mode */
+    }
+
+    nav a.current {
+        color: #03dac6; /* Teal for current link in dark mode */
+    }
+}
+
+/* Switcher positioning */
+.color-scheme {
+    position: absolute; /* Take the element out of the normal flow */
+    top: 1rem; /* Offset from the top */
+    right: 1rem; /* Offset from the right */
+    font-size: 80%; /* Make the font smaller */
+    font-family: inherit; /* Inherit font from parent */
+    z-index: 1000; /* Ensure it appears above other content */
+}
+
+.color-scheme select {
+    font-family: inherit; /* Ensure the select uses the same font */
+    font-size: 80%; /* Make the select box smaller */
+    padding: 0.2rem; /* Add some padding for better appearance */
 }
 
