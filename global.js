@@ -74,11 +74,11 @@ window.addEventListener('load', () => {
 
 // Define the pages for the navigation menu
 let pages = [
-  { url: '/index.html', title: 'Home' },
-  { url: '/projects/index.html', title: 'Projects' },
-  { url: '/contact/index.html', title: 'Contact' },
+  { url: 'index.html', title: 'Home' },
+  { url: 'projects/index.html', title: 'Projects' },
+  { url: 'contact/index.html', title: 'Contact' },
   { url: 'https://github.com/parnapraveen', title: 'GitHub Profile' }, // External link
-  { url: '/resume/index.html', title: 'Resume' }
+  { url: 'resume/index.html', title: 'Resume' }
 ];
 
 // Create a new <nav> element and prepend it to the body
