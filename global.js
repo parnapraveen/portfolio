@@ -94,7 +94,7 @@ for (let p of pages) {
   let title = p.title;
 
   // Adjust the URL if we are not on the home page
-  if (!ARE_WE_HOME && !url.startsWith('http')) {
+  if (!ARE_WE_HOME) {
     // Check if the URL starts with the GitHub Pages base URL
     if (url.startsWith('https://parnapraveen.github.io/portfolio')) {
       url = 'portfolio/' + url.substring('https://parnapraveen.github.io/'.length);
