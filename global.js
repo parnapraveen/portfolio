@@ -94,7 +94,10 @@ for (let p of pages) {
   let title = p.title;
 
   // Adjust the URL if we are not on the home page
-  url = !ARE_WE_HOME && !url.startsWith('http') ? '../' + url : url;
+  if (!ARE_WE_HOME && !url.startsWith('http')) {
+    // Only prepend '../' if the URL does not start with a '/'
+    url = url.startsWith('/') ? url : '../' + url;
+  }
 
   // Create the link element
   let a = document.createElement('a');
