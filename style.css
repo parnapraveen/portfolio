@@ -2,7 +2,7 @@
     --color-accent: oklch(65% 50% 0); /* Define accent color */
     --background-color: #ffffff; /* Light background color */
     --text-color: #000000; /* Light text color */
-    --border-color: oklch(50% 10% 200 / 40%); /* Light border color */
+    --border-color: oklch(80% 3% 200 / 40%); /* Light border color */
 }
 
 html {
@@ -24,6 +24,17 @@ body {
     color: var(--text-color); /* Use the defined text color */
 }
 
+nav {
+    display: flex; /* Enable Flexbox layout */
+    margin-bottom: 1em; /* Add margin below the nav */
+    background-color: var(--background-color); /* Use the background color variable */
+    color: var(--text-color); /* Use the text color variable */
+    border-bottom: 1px solid oklch(80% 3% 200); /* Cool gray bottom border */
+    margin-bottom: 1em; /* Space below the nav */
+    text-align: center; /* Center text in the nav */
+    transition: background-color 0.3s ease, color 0.3s ease, border-bottom-color 0.3s ease; /* Smooth transition */
+}
+
 nav ul {
     display: contents; /* Ignore the <ul> for styling */
 }
@@ -33,18 +44,10 @@ nav li {
     /* ... existing styles ... */
 }
 
-nav {
-    display: flex; /* Enable Flexbox layout */
-    margin-bottom: 1em; /* Add margin below the nav */
-    background-color: var(--background-color); /* Use the background color variable */
-    color: var(--text-color); /* Use the text color variable */
-    border-bottom: 1px solid var(--border-color); /* Use the border color variable */
-}
-
 nav a {
     flex: 1; /* Make each <a> take up equal space */
     text-decoration: none; /* Remove underline from links */
-    color: inherit; /* Inherit color from nav */
+    color: inherit; /* Use the same text color as the parent */
     text-align: center; /* Center the text */
     padding: 0.5em; /* Add padding for spacing */
     /* ... existing styles ... */
@@ -56,8 +59,9 @@ nav a.current {
 }
 
 nav a:hover {
-    background-color: color-mix(in oklch, var(--color-accent), canvas 85%); /* Improved hover background color */
-    /* ... existing styles ... */
+    border-bottom: 0.4em solid var(--color-accent); /* Use accent color for hovered links */
+    background-color: oklch(65% 50% 0 / 10%); /* Light background with the same hue as accent color */
+    /* Additional hover styles can be added here */
 }
 
 form {
