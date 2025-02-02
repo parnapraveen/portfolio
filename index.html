@@ -14,5 +14,29 @@
         <img src="images/kitten.jpg" alt="A cute white kitten sitting next to pink flowers" class="centered-image">
         <p class="centered-text">Cats are my favorite animal so I wanted to include the picture above.</p>
     </div>
+    <h2>Latest Projects</h2>
+    <div class="projects">
+        <!-- Dynamically added content will appear here -->
+    </div>
+    <h2>GitHub Profile Stats</h2>
+    <div id="profile-stats">
+        <div class="stat">
+            <h3>FOLLOWERS</h3>
+            <p id="followers-count">${githubData.followers}</p>
+        </div>
+        <div class="stat">
+            <h3>FOLLOWING</h3>
+            <p id="following-count">${githubData.following}</p>
+        </div>
+        <div class="stat">
+            <h3>PUBLIC REPOS</h3>
+            <p id="repos-count">${githubData.public_repos}</p>
+        </div>
+        <div class="stat">
+            <h3>PUBLIC GISTS</h3>
+            <p id="gists-count">${githubData.public_gists}</p>
+        </div>
+    </div>
+    <script src="index.js" type="module" defer></script>
 </body>
 </html>

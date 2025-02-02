@@ -1,0 +1,74 @@
+[
+    {
+        "title": "Project One",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A personal portfolio website to showcase my projects and skills."
+    },
+    {
+        "title": "Project Two",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "An online store built with React and Node.js."
+    },
+    {
+        "title": "Project Three",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A weather forecasting app using the OpenWeather API."
+    },
+    {
+        "title": "Project Four",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A blogging platform where users can create and share posts."
+    },
+    {
+        "title": "Project Five",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A task management tool to help users organize their tasks."
+    },
+    {
+        "title": "Project Six",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A real-time chat application built with WebSocket."
+    },
+    {
+        "title": "Project Seven",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "An app to find and save recipes from various sources."
+    },
+    {
+        "title": "Project Eight",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A fitness tracking app to log workouts and monitor progress."
+    },
+    {
+        "title": "Project Nine",
+        "year": "2022",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "An application to track personal expenses and budgets."
+    },
+    {
+        "title": "Project Ten",
+        "year": "2021",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A dashboard to manage multiple social media accounts."
+    },
+    {
+        "title": "Project Eleven",
+        "year": "2024",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "An interactive quiz application for learning and testing knowledge."
+    },
+    {
+        "title": "Project Twelve",
+        "year": "2023",
+        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
+        "description": "A VR game developed using Unity and C#."
+    }
+]

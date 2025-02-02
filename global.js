@@ -18,6 +18,7 @@ document.body.insertAdjacentHTML(
   </label>`
 );
 
+
 // Function to set the color scheme
 function setColorScheme(colorScheme) {
   document.documentElement.style.setProperty('color-scheme', colorScheme);
@@ -108,7 +109,9 @@ for (let p of pages) {
   // Adjust the URL if we are not on the home page
   if (!ARE_WE_HOME) {
     // Prepend '/portfolio/' to internal page links
-    url = '/portfolio/' + url;
+    //url = '/portfolio/' + url;
+    //url = url.startsWith('/') ? url : '../' + url;
+    url = '../' + url
   }
 
   // Create the link element
@@ -130,35 +133,75 @@ for (let p of pages) {
   // Append the link to the nav
   nav.append(a);
 }
-  /*
-  // Adjust the URL if we are not on the home page
-  if (!ARE_WE_HOME) {
-    // Check if the URL starts with the GitHub Pages base URL
-    if (url.startsWith('https://parnapraveen.github.io/portfolio')) {
-      url = 'portfolio/' + url.substring('https://parnapraveen.github.io/'.length);
-    } else {
-      // Only prepend '../' if the URL does not start with a '/'
-      url = url.startsWith('/') ? url : '../' + url;
-    }
+
+// Function to fetch JSON data
+export async function fetchJSON(url) {
+  try {
+      // Fetch the JSON file from the given URL
+      const response = await fetch(url);
+
+      if (!response.ok) {
+        throw new Error(`Failed to fetch projects: ${response.statusText}`);
+      }
+      
+      // Log the response object to inspect it
+      console.log(response);
+
+      // Parse the JSON data
+      const data = await response.json();
+      return data; // Return the parsed data
+
+  } catch (error) {
+      console.error('Error fetching or parsing JSON data:', error);
   }
-
-  // Create the link element
-  let a = document.createElement('a');
-  a.href = url; // Set the href to the URL from the pages array
-  a.textContent = title;
-
-  // Highlight the current page link
-  a.classList.toggle(
-    'current',
-    a.host === location.host && a.pathname === location.pathname
-  );
-
-  // Open external links in a new tab
-  if (a.host !== location.host) {
-    a.target = '_blank';
-  }
-
-  // Append the link to the nav
-  nav.append(a);
 }
-  */
+
+//fetchJSON('../lib/projects.json')
+
+// Function to render project details
+export function renderProjects(projects, containerElement, headingLevel = 'h2') {
+    // Check if the containerElement is a valid DOM element
+    if (!(containerElement instanceof HTMLElement)) {
+        console.error('Invalid container element provided.');
+        return; // Exit the function if the container is not valid
+    }
+
+    // Clear existing content in the container
+    containerElement.innerHTML = '';
+
+    // Validate heading level
+    const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2'; // Default to h2 if invalid
+
+    // Loop through each project and create an article element
+    projects.forEach(project => {
+        const article = document.createElement('article');
+
+        // Define the content dynamically with checks for missing data
+        article.innerHTML = `
+            <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
+            <img src="${project.image || 'path/to/default/image.png'}" alt="${project.title || 'Project Image'}">
+            <p>${project.description || 'No description available.'}</p>
+        `;
+
+        // Append the article to the container
+        containerElement.appendChild(article);
+    });
+}
+/*
+const sampleProject = {
+    title: "My Awesome Project",
+    image: "path/to/image.png",
+    description: "This project does amazing things."
+};
+
+const container = document.getElementById('projects-container'); // Ensure this element exists in your HTML
+renderProjects(sampleProject, container, 'h3'); // Test with h3
+renderProjects(sampleProject, container, 'h1'); // Test with h1
+renderProjects(sampleProject, container, 'h4'); // Test with h4
+*/
+
+export async function fetchGitHubData(username) {
+    // Fetch data from the GitHub API for the specified username
+    return fetchJSON(`https://api.github.com/users/${username}`);
+}
