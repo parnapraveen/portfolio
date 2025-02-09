@@ -324,3 +324,69 @@ h2 {
     color: #000;
 }
 
+.container {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+#projects-pie-plot {
+    max-width: 20em;
+    margin-block: 2em;
+    overflow: visible;
+}
+
+.legend {
+    flex: 1;
+    list-style: none;
+    padding: 1em;
+    margin: 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(9em, 1fr));
+    gap: 1em;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.swatch {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: var(--color);
+    border-radius: 3px;
+}
+
+.legend em {
+    color: #666;
+    font-style: italic;
+    margin-left: 0.25em;
+}
+
+/* Updated styles for search functionality */
+.visualization-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.searchBar {
+    width: 100%;
+    padding: 0.5em 1em;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+    margin-top: -1em;
+    margin-bottom: 2em;
+}
+
+.searchBar:focus {
+    outline: none;
+    border-color: #666;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+}
