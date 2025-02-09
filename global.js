@@ -109,9 +109,9 @@ for (let p of pages) {
   // Adjust the URL if we are not on the home page
   if (!ARE_WE_HOME) {
     // Prepend '/portfolio/' to internal page links
-    url = '/portfolio/' + url;
+    //url = '/portfolio/' + url;
     //url = url.startsWith('/') ? url : '../' + url;
-    //url = '../' + url
+    url = '../' + url
   }
 
   // Create the link element
@@ -160,33 +160,63 @@ export async function fetchJSON(url) {
 
 // Function to render project details
 export function renderProjects(projects, containerElement, headingLevel = 'h2') {
-    // Check if the containerElement is a valid DOM element
-    if (!(containerElement instanceof HTMLElement)) {
-        console.error('Invalid container element provided.');
-        return; // Exit the function if the container is not valid
-    }
+  // Check if the containerElement is a valid DOM element
+  if (!(containerElement instanceof HTMLElement)) {
+      console.error('Invalid container element provided.');
+      return;
+  }
 
-    // Clear existing content in the container
-    containerElement.innerHTML = '';
+  // Clear existing content in the container
+  containerElement.innerHTML = '';
 
-    // Validate heading level
-    const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
-    const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2'; // Default to h2 if invalid
+  // Validate heading level
+  const validHeadingLevels = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+  const headingTag = validHeadingLevels.includes(headingLevel) ? headingLevel : 'h2';
 
-    // Loop through each project and create an article element
-    projects.forEach(project => {
-        const article = document.createElement('article');
+  // Loop through each project and create an article element
+  projects.forEach(project => {
+      const article = document.createElement('article');
 
-        // Define the content dynamically with checks for missing data
-        article.innerHTML = `
-            <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
-            <img src="${project.image || 'path/to/default/image.png'}" alt="${project.title || 'Project Image'}">
-            <p>${project.description || 'No description available.'}</p>
-        `;
+      // Create the content with year information
+      article.innerHTML = `
+          <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
+          <img src="${project.image || 'path/to/default/image.png'}" alt="${project.title || 'Project Image'}">
+          <div class="project-content">
+              <p class="project-description">${project.description || 'No description available.'}</p>
+              <p class="project-year">${project.year ? `Year: ${project.year}` : 'Year not specified'}</p>
+          </div>
+      `;
 
-        // Append the article to the container
-        containerElement.appendChild(article);
-    });
+      // Add CSS styles to the article element
+      article.style.cssText = `
+          display: grid;
+          gap: 1rem;
+      `;
+
+      // Style the project content container
+      const projectContent = article.querySelector('.project-content');
+      if (projectContent) {
+          projectContent.style.cssText = `
+              display: flex;
+              flex-direction: column;
+              gap: 0.5rem;
+          `;
+      }
+
+      // Style the year text
+      const yearElement = article.querySelector('.project-year');
+      if (yearElement) {
+          yearElement.style.cssText = `
+              font-style: italic;
+              color: var(--text-color);
+              opacity: 0.8;
+              margin-top: 0.5rem;
+          `;
+      }
+
+      // Append the article to the container
+      containerElement.appendChild(article);
+  });
 }
 /*
 const sampleProject = {
