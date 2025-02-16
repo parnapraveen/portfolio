@@ -390,3 +390,146 @@ h2 {
     border-color: #666;
     box-shadow: 0 0 5px rgba(0,0,0,0.1);
 }
+
+.stats {
+    font-family: Arial, sans-serif;
+    margin: 20px 0;
+}
+
+.stats dt {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.stats dd {
+    margin-left: 20px;
+    margin-bottom: 10px;
+}
+
+.stats-container {
+    margin: 20px 0;
+}
+
+.summary-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.stats-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.stat-item {
+    flex: 1 1 30%; /* Adjusts the width of each stat item */
+    margin: 10px;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 14px;
+    color: #888; /* Light gray for labels */
+}
+
+.stat-value {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.gridlines line {
+    stroke: lightgray; /* Light gray color for gridlines */
+    stroke-opacity: 0.7; /* Slightly transparent */
+}
+
+.gridlines line:hover {
+    stroke: steelblue; /* Change color on hover for better visibility */
+}
+
+dl.info {
+  display: none; /* Initially hidden */
+  grid-template-columns: auto 1fr; /* Grid layout */
+  margin: 0; /* Remove default margins */
+  transition-duration: 500ms;
+  transition-property: opacity, visibility;
+}
+
+dl.info[hidden]:not(:hover, :focus-within) {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.tooltip {
+  position: fixed; /* Fixed position */
+  top: 1em; /* Positioning */
+  left: 1em; /* Positioning */
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent background */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+  border-radius: 5px; /* Rounded corners */
+  padding: 10px; /* Padding for spacing */
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+circle {
+  transition: 200ms;
+  transform-origin: center;
+  transform-box: fill-box;
+}
+
+circle:hover {
+  transform: scale(1.5); /* Scale on hover */
+}
+
+@keyframes marching-ants {
+  to {
+    stroke-dashoffset: -8; /* 5 + 3 */
+  }
+}
+
+.selection {
+  fill-opacity: 0.1;
+  stroke: black;
+  stroke-opacity: 0.7;
+  stroke-dasharray: 5 3;
+  animation: marching-ants 2s linear infinite;
+}
+
+circle.selected {
+  fill: #4a90e2 !important; /* A nice blue color */
+}
+
+#selection-count {
+  margin: 1em 0;
+  font-weight: bold;
+}
+
+.stats {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5em;
+  margin: 1em 0;
+}
+
+.stats dt {
+  font-weight: bold;
+}
+
+.stats dd {
+  margin: 0;
+}
+
+#language-breakdown {
+  font-family: monospace;
+  white-space: pre;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 1em 0;
+  display: flex;
+  gap: 2em;
+}
+
+#language-breakdown strong {
+  font-weight: bold;
+}
