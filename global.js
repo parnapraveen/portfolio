@@ -107,9 +107,7 @@ for (let p of pages) {
     continue;
   }
 
-  // Adjust the URL if we are not on the home page
   if (!ARE_WE_HOME) {
-    // Prepend '/portfolio/' to internal page links
     url = '/portfolio/' + url;
     //url = url.startsWith('/') ? url : '../' + url;
     //url = '../' + url
