@@ -533,3 +533,28 @@ circle.selected {
 #language-breakdown strong {
   font-weight: bold;
 }
+
+.project-content p {
+    margin: 0; /* Remove default margin */
+}
+
+.project-year {
+    margin-bottom: 0.2rem; /* Adjust this value to decrease space */
+}
+
+.project-content img {
+    max-width: 100%; /* Ensures the image does not exceed the width of its container */
+    height: auto; /* Maintains the aspect ratio */
+    width: auto; /* Allows the image to scale down */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    display: block; /* Removes any extra space below the image */
+    margin: 0 auto; /* Centers the image if the container is wider */
+}
+
+.project-image {
+    width: 100px; /* Set a specific width */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: cover; /* Ensure the image covers the area without distortion */
+    display: block; /* Removes any extra space below the image */
+    margin: 0 auto; /* Centers the image if the container is wider */
+}

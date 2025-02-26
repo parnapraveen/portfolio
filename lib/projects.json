@@ -3,72 +3,84 @@
         "title": "Project One",
         "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A personal portfolio website to showcase my projects and skills."
+        "description": "A personal portfolio website to showcase my projects and skills.",
+        "url": "https://parnapraveen.github.io/portfolio/"
     },
     {
         "title": "Project Two",
-        "year": "2022",
-        "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "An online store built with React and Node.js."
+        "year": "2025",
+        "image": "../images/bikewatching_homepage.png",
+        "description": "An interactive map visualization of bike traffic in the Boston area during different times of the day",
+        "url": "https://parnapraveen.github.io/bikewatching/"
     },
     {
         "title": "Project Three",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A weather forecasting app using the OpenWeather API."
+        "description": "A weather forecasting app using the OpenWeather API.",
+        "url": "https://example.com/project-three"
     },
     {
         "title": "Project Four",
         "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A blogging platform where users can create and share posts."
+        "description": "A blogging platform where users can create and share posts.",
+        "url": "https://example.com/project-four"
     },
     {
         "title": "Project Five",
         "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A task management tool to help users organize their tasks."
+        "description": "A task management tool to help users organize their tasks.",
+        "url": "https://example.com/project-five"
     },
     {
         "title": "Project Six",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A real-time chat application built with WebSocket."
+        "description": "A real-time chat application built with WebSocket.",
+        "url": "https://example.com/project-six"
     },
     {
         "title": "Project Seven",
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "An app to find and save recipes from various sources."
+        "description": "An app to find and save recipes from various sources.",
+        "url": "https://example.com/project-seven"
     },
     {
         "title": "Project Eight",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A fitness tracking app to log workouts and monitor progress."
+        "description": "A fitness tracking app to log workouts and monitor progress.",
+        "url": "https://example.com/project-eight"
     },
     {
         "title": "Project Nine",
         "year": "2022",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "An application to track personal expenses and budgets."
+        "description": "An application to track personal expenses and budgets.",
+        "url": "https://example.com/project-nine"
     },
     {
         "title": "Project Ten",
         "year": "2021",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A dashboard to manage multiple social media accounts."
+        "description": "A dashboard to manage multiple social media accounts.",
+        "url": "https://example.com/project-ten"
     },
     {
         "title": "Project Eleven",
         "year": "2024",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "An interactive quiz application for learning and testing knowledge."
+        "description": "An interactive quiz application for learning and testing knowledge.",
+        "url": "https://example.com/project-eleven"
     },
     {
         "title": "Project Twelve",
         "year": "2023",
         "image": "https://vis-society.github.io/labs/2/images/empty.svg",
-        "description": "A VR game developed using Unity and C#."
+        "description": "A VR game developed using Unity and C#.",
+        "url": "https://example.com/project-twelve"
     }
 ]

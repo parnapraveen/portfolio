@@ -181,10 +181,13 @@ export function renderProjects(projects, containerElement, headingLevel = 'h2') 
       // Create the content with year information
       article.innerHTML = `
           <${headingTag}>${project.title || 'Untitled Project'}</${headingTag}>
-          <img src="${project.image || 'path/to/default/image.png'}" alt="${project.title || 'Project Image'}">
+          <img src="${project.image || 'path/to/default/image.png'}" alt="${project.title || 'Project Image'}" style="width: 300px; height: 200px; object-fit: cover;">
           <div class="project-content">
               <p class="project-description">${project.description || 'No description available.'}</p>
-              <p class="project-year">${project.year ? `Year: ${project.year}` : 'Year not specified'}</p>
+              <p class="project-year" style="margin-bottom: 0.2rem;">${project.year ? `Year: ${project.year}` : 'Year not specified'}</p>
+              <p class="project-url">
+                  <a href="${project.url}" target="_blank">View Project</a>
+              </p>
           </div>
       `;
 
